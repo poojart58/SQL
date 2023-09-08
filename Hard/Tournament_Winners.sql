@@ -68,6 +68,40 @@
 -- | 3         | 40         |
 -- +-----------+------------+
 
+--SQL FOR TABLE AND INSERT SCRIPTS 
+CREATE TABLE Players (
+    player_id INT PRIMARY KEY,
+    group_id INT
+);
+
+
+CREATE TABLE Matches (
+    match_id INT PRIMARY KEY,
+    first_player INT,
+    second_player INT,
+    first_score INT,
+    second_score INT
+);
+INSERT INTO Players (player_id, group_id)
+VALUES
+    (15, 1),
+    (25, 1),
+    (30, 1),
+    (45, 1),
+    (10, 2),
+    (35, 2),
+    (50, 2),
+    (20, 3),
+    (40, 3);
+
+    INSERT INTO Matches (match_id, first_player, second_player, first_score, second_score)
+VALUES
+    (1, 15, 45, 3, 0),
+    (2, 30, 25, 1, 2),
+    (3, 30, 15, 2, 0),
+    (4, 40, 20, 5, 2),
+    (5, 35, 50, 1, 1);
+
 -- Solution
 with t1 as(
 select first_player, sum(first_score) as total
